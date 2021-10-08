@@ -57,10 +57,13 @@ if [ "x${INPUT_SARIF_UPLOAD}" != "x" ]; then
     terrascan scan ${args} -o sarif > terrascan.sarif
 fi
 
-echo "exit code: ${res}"
 # Handling exit code
-if [ ${INPUT_ONLY_WARN} == true ]; then 
+if [ ${INPUT_ONLY_WARN} == true ]; then
     exit 0
 else
-    exit $res
+    if [ "${res}" != "4" ]; then
+      exit 0
+    else
+      exit $res
+    fi
 fi
