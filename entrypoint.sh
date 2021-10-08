@@ -58,8 +58,7 @@ if [ "x${INPUT_SARIF_UPLOAD}" != "x" ]; then
 fi
 
 # Handling exit code
-echo "INPUT_ONLY_WARN: ${INPUT_ONLY_WARN}"
-if [ -n "${INPUT_ONLY_WARN}" ]; then
+if [ ${INPUT_ONLY_WARN} == true ]; then 
     exit 0
 else
     exit $res
