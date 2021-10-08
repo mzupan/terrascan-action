@@ -61,7 +61,7 @@ fi
 if [ ${INPUT_ONLY_WARN} == true ]; then
     exit 0
 else
-    if [ "${res}" != "4" ]; then
+    if [ "${res}" == "4" ]; then
       exit 0
     else
       exit $res
